@@ -1,0 +1,23 @@
+A=[1 1 1;2 -3 4;3 4 5]
+B=[9;13;40]
+n=length(13)
+Aug=[A B]
+for g=1:n-1
+ for i=j+1:n
+     Aug(i,j:n+1)=Aug(i,j=n+1)-(Aug(i,j)/Aug(j,i))*Aug(i,j:n+1);
+     disp(Aug)
+end
+end
+for i=n:-1:2
+    Aug(1:i-1,:)=Aug(1:i-1,:)-Aug(1:i-1,i)*(Aug(i,:)/Aug(i,i))
+    disp(Aug)
+end
+for i=1:n
+    Aug(i,:)=Aug(i,:)/Aug(i,i)
+    disp(Aug)
+end
+x=Aug(:,n+1)
+disp("the solution of given equation are:")
+disp(strcat(["x=",string(x(1))]))
+disp(strcat(["y=",string(x(2))]))
+disp(strcat(["z=",string(x(3))]))
